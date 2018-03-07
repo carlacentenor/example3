@@ -7,9 +7,8 @@ import data from './data';
 class MusicApp extends Component {
   render() {
 
-
     return (
-      <div className="App">
+      <div className="App container-fluid">
       <Artista  data={data} />
       </div>
     );

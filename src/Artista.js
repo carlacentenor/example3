@@ -8,23 +8,31 @@ class Artista extends Component {
   }
     render(){
    const data = this.props.data;
-     /*  const songs = this.props.songs.map((song, index) =>{
-        return <li key={index}>{song}</li>
-      }) */
+     
         return (
-            <div className="card">
+            <div className="row">
            
-              { data && data.map((artist,index)=>{
-                return  ( <div key={index}>
-                <div >
-                <img className="img-artist" src={artist.img} alt={artist.name} />
-            </div>
-            <div className="">   
-                <h3 className = "">{artist.name}</h3> 
-             
-                <p>{artist.bio}</p>
-            </div>
-                
+              {data.map((artist,index)=>{
+                return  ( 
+                <div className="card col-3 mt-1" key={index}>
+                <div className ="pt-2">
+                   <img className="card-img-top" src={artist.img} alt={artist.name} />
+                </div>
+                <div className="card-body">   
+                  <h3 className = "card-title">{artist.name}</h3> 
+                  <p className ="card-text text-justify">{artist.bio}</p>
+                </div>
+                <div>
+                  <h5>Canciones Populares :</h5>
+                  <ul>
+                  {
+                    artist.songs.map((song, index) =>{
+                      return (<li key={index}>{song}</li> )
+                    })                
+                  }  
+                  </ul>
+                </div>
+
                 </div> )
               }) }
             
